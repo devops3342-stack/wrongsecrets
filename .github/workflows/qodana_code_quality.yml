@@ -19,12 +19,11 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2023.3
+        uses: JetBrains/qodana-action@v2026.1
         with:
-          args: --apply-fixes
+          args: --apply-fixes --linter jetbrains/qodana-jvm-community:2024.1
           pr-mode: false
           push-fixes: pull-request
-          linter: jetbrains/qodana-jvm-community:2023.3
+          github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
